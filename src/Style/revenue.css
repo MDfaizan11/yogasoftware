@@ -1,0 +1,117 @@
+.revenue_section_upper_side {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.revenue_card {
+  background: #fff;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  min-width: 200px;
+  flex: 1;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 2px 0 25px #04847e48;
+}
+
+.revenue_card:hover {
+  transform: translateY(-5px);
+}
+
+.revenue_section_upper_side h2 {
+  font-size: 16px;
+  color: #333;
+}
+
+.revenue_section_upper_side h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #007bff;
+}
+/* bar chrt css */
+
+.bar_chart_form_wrapper {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+  width: 450px;
+}
+
+.bar_form_group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.bar_form_group label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.bar_form_group input,
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.bar_form_group input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.bar_form_group_submit_btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  background: #0dada5;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+@media (max-width: 480px) {
+  .bar_chart_form_wrapper {
+    padding: 15px;
+  }
+
+  .bar_form_group input,
+  select {
+    font-size: 14px;
+  }
+
+  .bar_form_group_submit_btn {
+    font-size: 16px;
+  }
+}
+.bar_chart_container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bar_chart_main_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}

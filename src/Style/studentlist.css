@@ -1,0 +1,523 @@
+.student_search_wrapper {
+  display: flex;
+  justify-content: center;
+}
+.student_search_wrapper input {
+  width: 450px;
+  height: 45px;
+  border-radius: 50px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 0 15px #04847e48;
+  outline: none;
+}
+.students_container {
+  width: 100%;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.students_container_close_button {
+  height: 40px;
+  width: 40px;
+  background: #f00;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.Student_button_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 25px;
+}
+.view_all_student_list_button {
+  background: #0dada5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.attendence_button {
+  background: #0dada5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.students_container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.table_wrapper {
+  overflow-x: auto;
+}
+
+.students_table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f9f9f9;
+}
+
+.students_table th,
+.students_table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.students_table th {
+  background: #0dada5;
+  color: white;
+  font-weight: bold;
+}
+
+.students_table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.no_data {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+.single_student_view_button {
+  padding: 12px 20px;
+  border: none;
+  color: white;
+  background: #0dada5;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.single_student_edit_button {
+  padding: 12px 20px;
+  border: none;
+  color: white;
+  background: blue;
+  margin-top: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.single_student_Add_payment_button {
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  background: green;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.single_student_delete_button {
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  background: orangered;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Shift_student_batch {
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  background: blue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .students_container {
+    max-width: 100%;
+  }
+
+  .students_table th,
+  .students_table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .students_table th,
+  .students_table td {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
+/* single student data */
+
+.single_sudent_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.single_student_modal_content {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.single_student_modal_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.single_student_modal_close:hover {
+  color: red;
+}
+
+.single_student_modal_content h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #444;
+}
+
+.single_student_modal_content p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.single_student_modal_content strong {
+  color: #222;
+}
+
+@media (max-width: 600px) {
+  .single_student_modal_content {
+    width: 95%;
+    max-width: 400px;
+    padding: 15px;
+  }
+
+  .single_student_modal_close {
+    font-size: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.view_button_table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.view_button_table th {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  text-align: left;
+}
+
+.view_button_table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.view_button_table td {
+  padding: 12px;
+  font-size: 15px;
+  color: #333;
+}
+
+.view_button_table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.view_button_table tr:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .view_button_table {
+    font-size: 14px;
+  }
+
+  .view_button_table th,
+  .view_button_table td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .view_button_table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.student_payment_popup_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.student_payment_popup {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+}
+
+.close_button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.popup_heading {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.student_payment_input,
+.student_payment_select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.student_payment_submit_button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.student_payment_submit_button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 480px) {
+  .student_payment_popup {
+    width: 90%;
+    padding: 15px;
+  }
+  .Student_button_container {
+    flex-direction: column;
+  }
+}
+
+/* student Shift */
+
+.Shift_student_availble_batches_popup_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.Shift_student_availble_batches_popup {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Shift_student_availble_batches_close_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.Shift_student_availble_batches_close_button:hover {
+  background: #cc0000;
+}
+
+.Shift_student_availble_batches_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.Shift_student_availble_batches_card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.Shift_student_availble_batches_card p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.Shift_student_availble_batches_card strong {
+  color: #333;
+}
+
+.shift-button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-top: 10px;
+}
+
+.shift-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.shift-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.shift-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+@media (max-width: 768px) {
+  .Shift_student_availble_batches_popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .Shift_student_availble_batches_container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .Shift_student_availble_batches_card {
+    padding: 12px;
+  }
+
+  .shift-button {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .Shift_student_availble_batches_close_button {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .Shift_student_availble_batches_popup {
+    width: 90%;
+    max-width: 700px;
+  }
+
+  .Shift_student_availble_batches_container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .shift-button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .Shift_student_availble_batches_container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+.ShowAbsentStudentList {
+  background: #0dada5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}

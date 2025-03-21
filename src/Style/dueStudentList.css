@@ -1,0 +1,87 @@
+.due_student_list_container {
+  max-width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.due_student_list_container h1 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Table Wrapper */
+.due_student_table_wrapper {
+  overflow-x: auto;
+}
+
+/* Table Styling */
+.due_student_table {
+  width: 100%;
+
+  margin: auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.due_student_table thead {
+  background: #007bff;
+  color: white;
+}
+
+.due_student_table th,
+.due_student_table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.due_student_table th {
+  font-weight: bold;
+  background-color: #0dada5;
+}
+
+.due_student_table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.due_student_table tbody tr:hover {
+  background: #f1f1f1;
+}
+
+/* No Data Message */
+.no_data {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px;
+  color: #ff0000;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .due_student_table th,
+  .due_student_table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .due_student_list_container {
+    padding: 0px;
+  }
+
+  .due_student_list_container h1 {
+    font-size: 20px;
+  }
+
+  .due_student_table th,
+  .due_student_table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

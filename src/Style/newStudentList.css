@@ -1,0 +1,115 @@
+.new_student_table_container {
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+}
+.new_student_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.new_student_table th,
+.new_student_table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.new_student_table th {
+  background-color: #0dada5;
+  color: white;
+}
+
+.new_student_table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.show_btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.show_btn:hover {
+  background-color: #0056b3;
+}
+
+.new_student_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.new_student_modal_content {
+  background: white;
+  padding: 20px;
+  width: 50%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  line-height: 28px;
+}
+.new_student_close_modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: red;
+}
+
+/* Transaction Table */
+.new_student_transaction_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.transaction_table_container {
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+}
+.new_student_transaction_table th,
+.new_student_transaction_table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.new_student_transaction_table th {
+  background-color: #28a745;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .new_student_modal_content {
+    width: 90%;
+    line-height: 1.5;
+  }
+}
+.searchBy_batch {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBy_batch input {
+  width: 450px;
+  height: 45px;
+  border-radius: 50px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 0 15px #04847e48;
+  outline: none;
+}

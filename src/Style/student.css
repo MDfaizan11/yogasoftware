@@ -1,0 +1,95 @@
+/* Container Styling */
+.branches_container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Grid Layout */
+.branches_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.branch_card_modern {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-align: left;
+  border-left: 5px solid #0dada5;
+}
+
+.branch_card_modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.branch_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.branch_header h2 {
+  font-size: 18px;
+  color: #007bff;
+}
+
+.branch_icon {
+  font-size: 24px;
+}
+
+/* Text Styling */
+.branch_card_modern p {
+  font-size: 14px;
+  color: #555;
+}
+
+.no_data {
+  font-size: 18px;
+  color: red;
+  font-weight: bold;
+}
+.view_student {
+  margin-top: 10px;
+  font-size: 14px;
+  background-color: #0dada5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .branches_grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .branch_card_modern {
+    padding: 15px;
+  }
+
+  .branch_header h2 {
+    font-size: 16px;
+  }
+
+  .branch_card_modern p {
+    font-size: 13px;
+  }
+}

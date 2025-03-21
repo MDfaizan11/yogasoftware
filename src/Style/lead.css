@@ -1,0 +1,586 @@
+.add_lead_button_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.add_lead_button_container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.add_lead_button {
+  background-color: #0dada5;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+.lead_search_baar {
+  width: 450px;
+  height: 45px;
+  border-radius: 50px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 0 15px #04847e48;
+  outline: none;
+}
+.add_lead_step_button {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #61b6ad;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  width: 70px;
+  cursor: pointer;
+}
+.add_lead_edit_button {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #007bff;
+  font-size: 14px;
+  font-weight: 700;
+  width: 60px;
+  height: 40px;
+  width: 70px;
+  cursor: pointer;
+}
+.add_lead_delete_button {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: orangered;
+  font-size: 14px;
+  font-weight: 700;
+  width: 60px;
+  height: 40px;
+  width: 70px;
+  cursor: pointer;
+}
+.Add_remark_button {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #61b6ad;
+  font-size: 14px;
+  font-weight: 700;
+  width: 60px;
+  height: 40px;
+  width: 120px;
+  cursor: pointer;
+}
+.multi_search_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 15px;
+}
+.multi_search_button .new_lead_button {
+  background-color: #ff9800;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 120px;
+}
+.follow_button {
+  background-color: purple;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 120px;
+}
+.success_button {
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 120px;
+}
+.inactive_button {
+  background-color: #009688;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 120px;
+}
+.all_lead {
+  background-color: #2196f3;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 120px;
+}
+/* Modal Overlay */
+.lead-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Container */
+.lead-container {
+  background: white;
+  padding: 20px;
+  width: 450px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Close Button */
+.lead_close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Form Fields */
+.lead-form label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.lead-form input,
+.lead-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Submit Button */
+.lead_submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.lead_submit-button:hover {
+  background-color: #218838;
+}
+/* table css */
+.lead-table-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px;
+  border-collapse: collapse;
+}
+
+.lead-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lead-table th,
+.lead-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border: 1px solid #d6d4d4;
+}
+
+.lead-table th {
+  background-color: #0dada5;
+  color: white;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .lead-container {
+    width: 90%;
+  }
+
+  .lead-table {
+    font-size: 14px;
+  }
+}
+/*  step form css */
+/* Step Form Container */
+.step_form_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  width: 350px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Step Form Title */
+.step_form_container h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Close Button */
+.close_Step_form {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: red;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+/* Input & Select Fields */
+.step_form_input,
+.step_form_select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.step_form_select {
+  cursor: pointer;
+}
+
+/* Submit Button */
+.step_form_button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.step_form_button:hover {
+  background-color: #218838;
+}
+
+.step_form_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.step_form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .step_form_container {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step_form_container {
+    width: 95%;
+  }
+
+  .step_form_input,
+  .step_form_select {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .step_form_button {
+    font-size: 14px;
+  }
+}
+
+/* remark form */
+
+.remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.remark_form_wrapper {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.remark_close_button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.remark_form_title {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.remark_form_input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.remark_teaxtarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  font-size: 16px;
+}
+
+.remark_form_submit_button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remark_form_submit_button:hover {
+  background: #0056b3;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .remark_form_wrapper {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .remark_form_input,
+  .remark_teaxtarea {
+    font-size: 14px;
+  }
+
+  .remark_form_submit_button {
+    font-size: 14px;
+  }
+}
+/* show button css */
+.show_button {
+  background-color: #ff9800;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 70px;
+}
+
+/* Background Overlay */
+.card_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup Card */
+.show_card_wrapper {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close Button */
+.card_close_button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Title */
+.card_title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Lead Information */
+.card_content p {
+  font-size: 16px;
+  margin: 5px 0;
+  text-align: left;
+}
+
+/* Logs Section */
+.log_title {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Logs Table */
+.lead_logs_table {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.lead_logs_table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lead_logs_table th,
+.lead_logs_table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.lead_logs_table th {
+  background: #007bff;
+  color: white;
+}
+
+.lead_logs_table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.no_logs {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .show_card_wrapper {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .card_content p {
+    font-size: 14px;
+  }
+
+  .lead_logs_table th,
+  .lead_logs_table td {
+    font-size: 14px;
+    padding: 5px;
+  }
+}

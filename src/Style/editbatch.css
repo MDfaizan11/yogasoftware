@@ -1,0 +1,135 @@
+/* Main Wrapper */
+.edit_batch_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 82vh;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+/* Form Container */
+.Edit_batch_form {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Heading */
+.Edit_batch_form_heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Input Fields */
+.Edit_batch_form_input,
+.Edit_batch_form_select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus */
+.Edit_batch_form_input:focus,
+.Edit_batch_form_select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Dropdown Styling */
+.Edit_batch_form_select {
+  appearance: none;
+  background: white;
+  cursor: pointer;
+}
+
+/* Submit Button */
+.Edit_batch_form_submit_button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.Edit_batch_form_submit_button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Edit_batch_form {
+    max-width: 90%;
+  }
+
+  .Edit_batch_form_heading {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Edit_batch_form {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .Edit_batch_form_heading {
+    font-size: 18px;
+  }
+
+  .Edit_batch_form_input,
+  .Edit_batch_form_select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .Edit_batch_form_submit_button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.edit_batch_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit_batch_modal_content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 570px;
+}
+
+.close_modal_button {
+  background: red;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  float: right;
+}

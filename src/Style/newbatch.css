@@ -1,0 +1,346 @@
+.create_new_batch {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.create_new_batch button {
+  padding: 15px 25px;
+  background: #0dada5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.create_batch_form_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.create_batch_form_container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.create_batch_form_close_button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.create_batch_form_heading {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.create_batch_input,
+.create_batch_form_select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.create_batch_form_submit_button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.create_batch_form_submit_button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .create_batch_form_container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .create_batch_form_container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .create_batch_input,
+  .create_batch_form_select {
+    font-size: 0.9rem;
+  }
+
+  .create_batch_form_submit_button {
+    font-size: 0.9rem;
+  }
+}
+
+/* ** */
+
+.batches-container {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
+}
+
+.batches-heading {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.batches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* Individual batch card */
+.batch-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 18px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.batch-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #0dada5;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+}
+
+.batch-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.batch-info p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.batch-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.no-batches {
+  font-size: 18px;
+  color: #777;
+}
+.batches_action_container {
+  display: flex;
+  justify-content: space-between;
+}
+.view_batch_detail {
+  margin-left: 10px;
+  padding: 10px;
+  background: #0dada5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.add_batch_student {
+  margin-left: 10px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.batch_edit_button {
+  margin-left: 10px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.batch_delete_button {
+  margin-left: 10px;
+  padding: 10px;
+  background: #f8312f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* stident form css */
+
+.student-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.student-form-container {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  height: 600px;
+  overflow: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.student-form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.student-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.student-form-container input,
+.student-form-container select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.student-form-container input:focus,
+.student-form-container select:focus {
+  border-color: #007bff;
+}
+
+.student-form-container button {
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.student-form-container button:hover {
+  background: #0056b3;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+}
+
+.close-button:hover {
+  color: red;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .student-form-container {
+    width: 95%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-form-container {
+    width: 90%;
+    max-width: 350px;
+  }
+  .student-form-container h2 {
+    font-size: 18px;
+  }
+  .student-form-container input {
+    font-size: 14px;
+  }
+  .student-form-container button {
+    font-size: 14px;
+  }
+}

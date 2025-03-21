@@ -1,0 +1,104 @@
+/* ✅ General Modal Overlay */
+.edit_employe_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* ✅ Modal Content */
+.edit_employe_modal_content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 40%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* ✅ Close Button */
+.edit_employe_form_close_btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit_employe_form_close_btn:hover {
+  background: #cc0000;
+}
+
+/* ✅ Form Styling */
+.employee_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee_form input,
+.employee_form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* ✅ Styling for Input Fields */
+.employee_form input {
+  background: #f9f9f9;
+}
+
+/* ✅ Button Styling */
+.employee_form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.employee_form button:hover {
+  background: #0056b3;
+}
+
+/* ✅ Responsive Design */
+@media screen and (max-width: 768px) {
+  .edit_employe_modal_content {
+    width: 90%;
+    max-width: none;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .edit_employe_modal_content {
+    width: 95%;
+  }
+
+  .employee_form input,
+  .employee_form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .edit_employe_form_close_btn {
+    font-size: 14px;
+    padding: 5px;
+  }
+}

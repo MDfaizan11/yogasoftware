@@ -1,0 +1,120 @@
+.edit_student_form_wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Form styles */
+.edit_student_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.edit_student_form input,
+.edit_student_form select,
+.edit_student_form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 8px 0;
+}
+
+.edit_student_form input[type="date"],
+.edit_student_form input[type="time"],
+.edit_student_form input[type="email"],
+.edit_student_form input[type="text"] {
+  width: 100%;
+}
+
+.edit_student_form input:focus,
+.edit_student_form select:focus,
+.edit_student_form button:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.edit_student_form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.edit_student_form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit_student_form button:hover {
+  background-color: #0056b3;
+}
+
+.edit_student_form label {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile devices (Portrait) */
+@media (max-width: 480px) {
+  .edit_student_form {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .edit_student_form input,
+  .edit_student_form button {
+    font-size: 14px;
+  }
+
+  .edit_student_form label {
+    font-size: 12px;
+  }
+}
+
+/* Tablet devices */
+@media (max-width: 768px) {
+  .edit_student_form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .edit_student_form input,
+  .edit_student_form button {
+    font-size: 15px;
+  }
+
+  .edit_student_form label {
+    font-size: 13px;
+  }
+}
+
+/* Laptop and Larger Screens */
+@media (min-width: 1024px) {
+  .edit_student_form {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .edit_student_form input,
+  .edit_student_form button {
+    font-size: 16px;
+  }
+}
+
+/* For Extra Large Screens */
+@media (min-width: 1200px) {
+  .edit_student_form {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
