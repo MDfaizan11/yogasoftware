@@ -22,40 +22,43 @@ import NewStudentList from "./Pages/NewStudentList";
 import StudentAttendenceSction from "./Components/StudentAttendenceSction";
 import AbsentStudentList from "./Pages/AbsentStudentList";
 import EditLead from "./Pages/EditLead";
+import ProtectedRoute from "./Components/Protected";
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route element={<Login />} path="/login" />
-          <Route element={<Dashboard />} path="/">
-            <Route element={<Home />} index path="" />
-            <Route element={<PaymentSlip />} path="paymentSlip" />
-            <Route element={<Student />} path="student" />
-            <Route element={<Lead />} path="lead" />
-            <Route element={<Batch />} path="batch" />
-            <Route element={<Attendence />} path="attendence" />
-            <Route element={<Revenue />} path="revenue" />
-            <Route
-              path="/studentAttendence/:id"
-              element={<StudentAttendenceSction />}
-            />
-            <Route
-              path="/absentStudentList/:id"
-              element={<AbsentStudentList />}
-            />
-            <Route path="/newStudentList/:id" element={<NewStudentList />} />
-            <Route path="/dueStudentList" element={<DueStudentList />} />
-            <Route path="/addEmployee" element={<AddEmploye />} />
-            <Route path="/addBranch" element={<AddBranchForm />} />
-            <Route path="/editBranch/:id" element={<EditBranch />} />
-            <Route path="/newbatches" element={<NewBatches />} />
-            <Route path="/newbatches/:id" element={<NewBatches />} />
-            <Route path="/studentsList/:id" element={<StudentsList />} />
-            <Route path="/editBatch/:id" element={<EditBatch />} />
-            <Route path="/editStudent/:id" element={<EditStudent />} />
-            <Route path="/editEmployee/:id" element={<Editemploye />} />
-            <Route path="/editLead/:id" element={<EditLead />} />
+          <Route element={<ProtectedRoute />}>
+            <Route element={<Dashboard />} path="/">
+              <Route element={<Home />} index path="" />
+              <Route element={<PaymentSlip />} path="paymentSlip" />
+              <Route element={<Student />} path="student" />
+              <Route element={<Lead />} path="lead" />
+              <Route element={<Batch />} path="batch" />
+              <Route element={<Attendence />} path="attendence" />
+              <Route element={<Revenue />} path="revenue" />
+              <Route
+                path="/studentAttendence/:id"
+                element={<StudentAttendenceSction />}
+              />
+              <Route
+                path="/absentStudentList/:id"
+                element={<AbsentStudentList />}
+              />
+              <Route path="/newStudentList/:id" element={<NewStudentList />} />
+              <Route path="/dueStudentList" element={<DueStudentList />} />
+              <Route path="/addEmployee" element={<AddEmploye />} />
+              <Route path="/addBranch" element={<AddBranchForm />} />
+              <Route path="/editBranch/:id" element={<EditBranch />} />
+              <Route path="/newbatches" element={<NewBatches />} />
+              <Route path="/newbatches/:id" element={<NewBatches />} />
+              <Route path="/studentsList/:id" element={<StudentsList />} />
+              <Route path="/editBatch/:id" element={<EditBatch />} />
+              <Route path="/editStudent/:id" element={<EditStudent />} />
+              <Route path="/editEmployee/:id" element={<Editemploye />} />
+              <Route path="/editLead/:id" element={<EditLead />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
