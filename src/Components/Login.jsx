@@ -15,7 +15,7 @@ function Login() {
       password,
     };
     try {
-      const response = await axios.post(`${BASE_URL}/login`, formData);
+      const response = await axios.post(`${BASE_URL}/auth/login`, formData);
 
       console.log(response.data);
       const { token, role, branchId } = response.data;
