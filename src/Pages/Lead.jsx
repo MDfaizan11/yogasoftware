@@ -137,6 +137,11 @@ function Lead() {
   }
 
   async function handleDeleteLead(id) {
+    const deleteLead = window.confirm(
+      `Are you sure you want to delete this lead?`
+    );
+    if (!deleteLead) return;
+
     try {
       const response = await axios.delete(`${BASE_URL}/lead/deleteLead/${id}`, {
         headers: {

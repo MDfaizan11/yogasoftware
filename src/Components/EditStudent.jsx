@@ -89,7 +89,7 @@ function EditStudent() {
       totalFees: studentFees || "0",
     };
 
-    console.log(studentData);
+  
     localStorage.setItem("studentData", JSON.stringify(studentData));
     try {
       const response = await axios.put(

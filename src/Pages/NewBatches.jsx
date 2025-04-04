@@ -75,7 +75,6 @@ function NewBatches() {
         }
       );
 
-      console.log("Batch Created:", response.data);
       setrefreshKey((prev) => prev + 1);
       if (response.status === 200) {
         alert("Batch created successfully");
@@ -107,7 +106,7 @@ function NewBatches() {
             },
           }
         );
-        console.log(response.data);
+
         setBatches(response.data);
       } catch (error) {
         console.log(error);
@@ -192,6 +191,27 @@ function NewBatches() {
     setEditBatchId(null);
     setrefreshKey((prev) => prev + 1);
   }
+
+  async function handleDeleteBatch(batchId) {
+    const deleteBatch = window.confirm("are you sure you want to delete?");
+    if (!deleteBatch) return;
+
+    try {
+      const response = await axios.delete(`${BASE_URL}/batch/${batchId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.status === 200) {
+        alert("Batch deleted successfully");
+        setrefreshKey((prev) => prev + 1);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <div className="create_new_batch">
@@ -327,7 +347,10 @@ function NewBatches() {
                       </button>
                     </abbr>
                     <abbr title="Delete">
-                      <button className="batch_delete_button">
+                      <button
+                        className="batch_delete_button"
+                        onClick={() => handleDeleteBatch(item.batchId)}
+                      >
                         <MdDelete />
                       </button>
                     </abbr>

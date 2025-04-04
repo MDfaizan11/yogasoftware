@@ -12,11 +12,10 @@ function Batch() {
   const [branches, setBranches] = useState([]);
   const [refreshKey, setRefreshKey] = useState(0);
 
-  // Get user details from localStorage
   const user = JSON.parse(localStorage.getItem("vijayansLogin"));
   const token = user?.token;
   const role = user?.role;
-  const branchId = user?.branchId; // Only exists if role === "EMPLOYEE"
+  const branchId = user?.branchId;
 
   useEffect(() => {
     async function getAllBranches() {
@@ -48,6 +47,10 @@ function Batch() {
   }
 
   async function handleDeleteBranch(id) {
+    const deleteBranch = window.confirm(
+      "If you delete a branch, all students associated with it will also be permanently deleted. If needed, please transfer the students to another branch before proceeding with the deletion"
+    );
+    if (!deleteBranch) return;
     try {
       const response = await axios.delete(`${BASE_URL}/branch/${id}`, {
         headers: {

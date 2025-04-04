@@ -77,6 +77,10 @@ function AddEmploye() {
   }, []);
 
   async function handleDelete(id) {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this employee?"
+    );
+    if (!confirmDelete) return;
     try {
       const response = await axios.delete(`${BASE_URL}/admin/emp/${id}`, {
         headers: {

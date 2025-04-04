@@ -24,7 +24,7 @@ function NewStudentList() {
             },
           }
         );
-        console.log(response.data);
+    
         setStudents(response.data);
       } catch (error) {
         console.error("Error fetching students:", error);
@@ -43,7 +43,7 @@ function NewStudentList() {
       });
       console.log(response.data);
       setSelectedStudent(response.data);
-      setIsModalOpen(true); // Open modal after fetching student data
+      setIsModalOpen(true); 
     } catch (error) {
       console.log(error);
     }

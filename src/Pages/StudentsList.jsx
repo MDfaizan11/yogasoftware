@@ -92,6 +92,10 @@ function StudentsList() {
   }
 
   async function handleDeleteStudent(id) {
+    const deleteStudent = window.confirm(
+      "If you delete a student, all their data will also be permanently deleted. If needed, please transfer the student to another batch before proceeding with the deletion."
+    );
+    if (!deleteStudent) return;
     try {
       const response = await axios.delete(`${BASE_URL}/student/${id}`, {
         headers: {

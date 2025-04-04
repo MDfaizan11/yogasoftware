@@ -129,3 +129,26 @@
     padding: 12px;
   }
 }
+
+.password_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password_wrapper .input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.eye_icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #666;
+  top: 27px;
+}
+.eye_icon:hover {
+  color: #333;
+}

@@ -120,7 +120,7 @@ function Revenue() {
 
   return (
     <>
-      <h1>Revenue Section</h1>
+      <h1 style={{ textAlign: "center" }}>Revenue Section</h1>
       <div className="revenue_section_upper_side">
         <div className="revenue_card">
           <h2>Total Branches</h2>

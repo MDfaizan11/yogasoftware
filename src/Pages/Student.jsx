@@ -6,7 +6,7 @@ import "../Style/student.css";
 
 function Student() {
   const [branches, setBranches] = useState([]);
-  const [filterText, setFilterText] = useState("");
+ 
   const token = JSON.parse(localStorage.getItem("vijayansLogin"))?.token;
   const branchId = JSON.parse(localStorage.getItem("vijayansLogin"))?.branchId;
   const role = JSON.parse(localStorage.getItem("vijayansLogin"))?.role;

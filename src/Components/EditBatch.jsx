@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
 
 function EditBatch({ batchId, onClose }) {
-  const navigate = useNavigate();
+
   const { id } = useParams();
   const [batchName, setBatchName] = useState("");
   const [batchStartDate, setBatchStartDate] = useState("");
