@@ -5,9 +5,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
-
+import axiosInstance from "../utils/axiosInstance";
 function EditBatch({ batchId, onClose }) {
-
   const { id } = useParams();
   const [batchName, setBatchName] = useState("");
   const [batchStartDate, setBatchStartDate] = useState("");
@@ -19,12 +18,15 @@ function EditBatch({ batchId, onClose }) {
   useEffect(() => {
     async function getbatch() {
       try {
-        const response = await axios.get(`${BASE_URL}/batch/${batchId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await axiosInstance.get(
+          `${BASE_URL}/batch/${batchId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         console.log(response.data);
         setBatchName(response.data.batchName);
         setBatchStartDate(response.data.startDate);

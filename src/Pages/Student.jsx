@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../config";
 import { useNavigate } from "react-router-dom";
 import "../Style/student.css";
+import axiosInstance from "../utils/axiosInstance";
 
 function Student() {
   const [branches, setBranches] = useState([]);
- 
+
   const token = JSON.parse(localStorage.getItem("vijayansLogin"))?.token;
   const branchId = JSON.parse(localStorage.getItem("vijayansLogin"))?.branchId;
   const role = JSON.parse(localStorage.getItem("vijayansLogin"))?.role;
@@ -15,7 +16,7 @@ function Student() {
   useEffect(() => {
     async function GetAllBranches() {
       try {
-        const response = await axios.get(`${BASE_URL}/branches/list`, {
+        const response = await axiosInstance.get(`${BASE_URL}/branches/list`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

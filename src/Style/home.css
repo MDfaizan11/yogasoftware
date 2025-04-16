@@ -1,0 +1,8 @@
+.home_container img {
+  width: 550px;
+}
+@media (max-width: 480px) {
+  .home_container img {
+    width: 100%;
+  }
+}

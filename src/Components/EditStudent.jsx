@@ -3,8 +3,11 @@ import { BASE_URL } from "../config";
 import "../Style/editStudent.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../utils/axiosInstance";
 function EditStudent() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [studentData, setStudentData] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -22,15 +25,15 @@ function EditStudent() {
   const [endingDate, setEndingDate] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [socialNetworkingId, setSocialNetworkingId] = useState("");
-  const [initialPayment, setInitialPayment] = useState("");
+  const [program, setProgram] = useState("");
   const [studentFees, setStudentFees] = useState("");
+  const [transition, setTransition] = useState([]);
   const token = JSON.parse(localStorage.getItem("vijayansLogin"))?.token;
 
   useEffect(() => {
     async function getAllStudent() {
       try {
-        const response = await axios.get(`${BASE_URL}/student/${id}`, {
+        const response = await axiosInstance.get(`${BASE_URL}/student/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -55,9 +58,9 @@ function EditStudent() {
         setEndingDate(response.data.endingDate);
         setWeight(response.data.weight);
         setHeight(response.data.height);
-        setSocialNetworkingId(response.data.socialNetworkingId);
-        setInitialPayment(response.data.initialPayment);
+        setProgram(response.data.program);
         setStudentFees(response.data.totalFees);
+        setTransition(response.data.transaction);
       } catch (error) {
         console.log(error);
       }
@@ -84,12 +87,10 @@ function EditStudent() {
       endingDate,
       weight,
       height,
-      socialNetworkingId,
-      initialPayment,
+      program,
       totalFees: studentFees || "0",
     };
 
-  
     localStorage.setItem("studentData", JSON.stringify(studentData));
     try {
       const response = await axios.put(
@@ -105,6 +106,25 @@ function EditStudent() {
       console.log(response.data);
       if (response.status === 200) {
         alert("Student Details Updated Successfully!");
+        setFirstName("");
+        setLastName("");
+        setFatherName("");
+        setDateOfBirth("");
+        setBirthTime("");
+        setNationality("");
+        setAddress("");
+        setEmail("");
+        setMobileNumber("");
+        setPhoneNumber("");
+        setDiseases("");
+        setMedicineName("");
+        setJoiningDate("");
+        setEndingDate("");
+        setWeight("");
+        setHeight("");
+        setProgram("");
+        setStudentFees("");
+        setTransition([]);
       } else {
         alert("Failed to update Student Details!");
       }
@@ -233,17 +253,9 @@ function EditStudent() {
           />
           <input
             type="text"
-            placeholder="Social Networking ID"
-            value={socialNetworkingId}
-            onChange={(e) => setSocialNetworkingId(e.target.value)}
-          />
-
-          <input
-            type="text"
-            placeholder="Enter Initial Payment"
-            value={initialPayment}
-            onChange={(e) => setInitialPayment(e.target.value)}
-            disabled={studentData.transaction?.length > 1}
+            placeholder="Program Name"
+            value={program}
+            onChange={(e) => setProgram(e.target.value)}
           />
 
           <input
@@ -252,6 +264,7 @@ function EditStudent() {
             value={studentFees}
             onChange={(e) => setStudentFees(e.target.value)}
             required
+            disabled={transition.length > 0}
           />
           <button type="submit" className="edit_student_submit_button">
             Submit

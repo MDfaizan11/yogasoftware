@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../Assets/Images/Group 1 (1).svg";
+import "../Style/home.css";
 function Home() {
   return (
     <>

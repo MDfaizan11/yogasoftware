@@ -4,6 +4,7 @@ import "../Style/paymentSlip.css";
 import html2pdf from "html2pdf.js";
 import axios from "axios";
 import { BASE_URL } from "../config";
+import axiosInstance from "../utils/axiosInstance";
 function PaymentSlip() {
   const slipRef = useRef(null);
   const [studentName, setStudentName] = useState("");
@@ -61,7 +62,7 @@ function PaymentSlip() {
   useEffect(() => {
     async function getAllPaymentStudent() {
       try {
-        const response = await axios.get(`${BASE_URL}/receipt/list`, {
+        const response = await axiosInstance.get(`${BASE_URL}/receipt/list`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -79,7 +80,7 @@ function PaymentSlip() {
   async function handleShowSlip(id) {
     setShowPaymentSlip(true);
     try {
-      const response = await axios.get(`${BASE_URL}/receipt/${id}`, {
+      const response = await axiosInstance.get(`${BASE_URL}/receipt/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

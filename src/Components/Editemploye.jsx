@@ -4,6 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../config";
 import "../Style/Editemploye.css";
 import { useParams } from "react-router-dom";
+import axiosInstance from "../utils/axiosInstance";
 function Editemploye() {
   const { id } = useParams();
 
@@ -21,12 +22,15 @@ function Editemploye() {
   useEffect(() => {
     async function getAllEmploye() {
       try {
-        const response = await axios.get(`${BASE_URL}/admin/emp/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await axiosInstance.get(
+          `${BASE_URL}/admin/emp/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         console.log(response.data);
         setEmail(response.data.email);
         setFirstName(response.data.firstName);

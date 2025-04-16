@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../Style/lead.css";
-import { BASE_URL } from "../config";
+import { BASE_URL } from "../../src/config";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../utils/axiosInstance";
+
 function Lead() {
   const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
@@ -29,6 +31,12 @@ function Lead() {
   const [showCard, setShowCard] = useState(false);
   const user = JSON.parse(localStorage.getItem("vijayansLogin"));
   const token = user?.token;
+  const [employeName, setemployeName] = useState([]);
+  const userId = JSON.parse(localStorage.getItem("vijayansLogin"))?.userId;
+  const role = JSON.parse(localStorage.getItem("vijayansLogin"))?.role;
+
+  const [selectEmploye, setselectEmploye] = useState("");
+
   async function handleAddLead(e) {
     e.preventDefault();
     const leadData = {
@@ -73,20 +81,29 @@ function Lead() {
   useEffect(() => {
     async function GetallLead() {
       try {
-        const response = await axios.get(` ${BASE_URL}/lead/getAllLeads`, {
+        let url = "";
+        if (role === "ADMIN" && selectEmploye) {
+          url = `${BASE_URL}/lead/user/${selectEmploye}/getAllLeads`;
+        } else {
+          url = `${BASE_URL}/lead/user/${userId}/getAllLeads`;
+        }
+
+        const response = await axiosInstance.get(url, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
         });
+
         console.log(response.data);
         setLead(response.data);
       } catch (error) {
         console.log(error);
       }
     }
+
     GetallLead();
-  }, [refreshKey]);
+  }, [refreshKey, selectEmploye]); // 👈 trigger again when selected employee changes
 
   function handleAddStep(id) {
     setShowStepForm(true);
@@ -194,12 +211,15 @@ function Lead() {
   async function handleShowData(id) {
     setShowCard(true);
     try {
-      const response = await axios.get(`${BASE_URL}/lead/getlead/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axiosInstance.get(
+        `${BASE_URL}/lead/getlead/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log(response.data);
       setShowcardData(response.data);
     } catch (error) {
@@ -210,6 +230,27 @@ function Lead() {
   function handleEditLead(id) {
     navigate(`/editLead/${id}`);
   }
+
+  useEffect(() => {
+    async function getAllEmploye() {
+      try {
+        const response = await axiosInstance.get(
+          `${BASE_URL}/admin/employees`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response.data);
+        setemployeName(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getAllEmploye();
+  }, []);
   return (
     <>
       <div className="add_lead_button_container">
@@ -254,6 +295,20 @@ function Lead() {
         >
           All Leads
         </button>
+        {role === "ADMIN" && (
+          <select
+            value={selectEmploye}
+            onChange={(e) => setselectEmploye(e.target.value)}
+          >
+            <option value="">Select Employee</option>
+            <option value={userId}> Admin</option>
+            {employeName.map((item) => (
+              <option key={item.userId} value={item.userId}>
+                {item.firstName}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
 
       {showForm && (

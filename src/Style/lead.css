@@ -342,6 +342,17 @@
 }
 
 @media (max-width: 480px) {
+  .add_lead_button_container {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+  }
+  .multi_search_button {
+    margin-top: 20px;
+
+    flex-wrap: wrap;
+  }
   .step_form_container {
     width: 95%;
   }

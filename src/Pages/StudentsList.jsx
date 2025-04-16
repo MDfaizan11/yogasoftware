@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "../Style/studentlist.css";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
+import axiosInstance from "../utils/axiosInstance";
 function StudentsList() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function StudentsList() {
   useEffect(() => {
     async function getStudentList() {
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/batch/${id}/student/list`,
           {
             headers: {
@@ -43,7 +44,7 @@ function StudentsList() {
 
   async function handleShowDeatil(id) {
     try {
-      const response = await axios.get(`${BASE_URL}/student/${id}`, {
+      const response = await axiosInstance.get(`${BASE_URL}/student/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -132,7 +133,7 @@ function StudentsList() {
   useEffect(() => {
     async function gettingallBatches() {
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/branches/available/batch`,
           {
             headers: {
@@ -356,7 +357,14 @@ function StudentsList() {
               )}
             </p>
             <p>
-              <strong>Birth Time:</strong> {singleStudentData.birthTime}
+              <strong>Birth Time:</strong>{" "}
+              {new Date(
+                `1970-01-01T${singleStudentData.birthTime}`
+              ).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
             </p>
             <p>
               <strong>Diseases:</strong> {singleStudentData.diseases || "None"}
@@ -416,9 +424,13 @@ function StudentsList() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>{item.paymentDate}</td>
-                        <td>{item.amountPaid}</td>
-                        <td>{item.paymentMode}</td>
+                        <td>
+                          {new Date(item.paymentDate).toLocaleDateString(
+                            "en-GB"
+                          ) || "N/A"}
+                        </td>
+                        <td>{item.amountPaid || "N/A"}</td>
+                        <td>{item.paymentMode || "N/A"}</td>
                       </tr>
                     </tbody>
                   </table>

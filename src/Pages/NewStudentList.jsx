@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../config";
 import "../Style/newStudentList.css";
+import axiosInstance from "../utils/axiosInstance";
 
 function NewStudentList() {
   const token = JSON.parse(localStorage.getItem("vijayansLogin"))?.token;
@@ -15,7 +16,7 @@ function NewStudentList() {
   useEffect(() => {
     async function getStudentList() {
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/branches/${id}/student/list`,
           {
             headers: {
@@ -24,7 +25,7 @@ function NewStudentList() {
             },
           }
         );
-    
+
         setStudents(response.data);
       } catch (error) {
         console.error("Error fetching students:", error);
@@ -35,15 +36,18 @@ function NewStudentList() {
 
   async function handleShowStudent(studentId) {
     try {
-      const response = await axios.get(`${BASE_URL}/student/${studentId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axiosInstance.get(
+        `${BASE_URL}/student/${studentId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log(response.data);
       setSelectedStudent(response.data);
-      setIsModalOpen(true); 
+      setIsModalOpen(true);
     } catch (error) {
       console.log(error);
     }

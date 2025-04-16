@@ -3,6 +3,7 @@ import "../Style/addEmploye.css";
 import axios from "axios";
 import { BASE_URL } from "../config";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../utils/axiosInstance";
 function AddEmploye() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -59,7 +60,7 @@ function AddEmploye() {
 
   const fetchEmployeeList = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/admin/employees`, {
+      const response = await axiosInstance.get(`${BASE_URL}/admin/employees`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -105,7 +106,7 @@ function AddEmploye() {
 
   async function GetallBraches() {
     try {
-      const response = await axios.get(`${BASE_URL}/branches/list`, {
+      const response = await axiosInstance.get(`${BASE_URL}/branches/list`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

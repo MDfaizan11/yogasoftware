@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
+import axiosInstance from "../utils/axiosInstance";
 function EditBranch() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function EditBranch() {
   useEffect(() => {
     async function getAllBranch() {
       try {
-        const response = await axios.get(`${BASE_URL}/branch/${id}`, {
+        const response = await axiosInstance.get(`${BASE_URL}/branch/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

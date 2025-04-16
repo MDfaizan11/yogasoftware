@@ -137,7 +137,8 @@
 }
 @media (max-width: 426px) {
   .add_branch_button {
-    font-size: 13px;
+    font-size: 12px;
+    border-radius: 15px;
   }
   .search_baar_branch {
     gap: 18px;

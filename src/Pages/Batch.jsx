@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 import { AiFillEdit } from "react-icons/ai";
 import { BASE_URL } from "../config";
 import "../Style/batch.css";
+import axiosInstance from "../utils/axiosInstance";
 
 function Batch() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Batch() {
   useEffect(() => {
     async function getAllBranches() {
       try {
-        const response = await axios.get(`${BASE_URL}/branches/list`, {
+        const response = await axiosInstance.get(`${BASE_URL}/branches/list`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

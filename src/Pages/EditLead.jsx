@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../config";
+import axiosInstance from "../utils/axiosInstance";
 function EditLead() {
   const { id } = useParams();
   const token = JSON.parse(localStorage.getItem("vijayansLogin"))?.token;
@@ -17,12 +18,15 @@ function EditLead() {
   useEffect(() => {
     async function getAllLead() {
       try {
-        const response = await axios.get(`${BASE_URL}/lead/getlead/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await axiosInstance.get(
+          `${BASE_URL}/lead/getlead/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         console.log(response.data);
         setName(response.data.name);
         setEmail(response.data.email);

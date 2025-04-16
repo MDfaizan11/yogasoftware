@@ -8,6 +8,7 @@ import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import EditBatch from "../Components/EditBatch";
 import { BASE_URL } from "../config";
+import axiosInstance from "../utils/axiosInstance";
 function NewBatches() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -39,10 +40,11 @@ function NewBatches() {
   const [endingDate, setEndingDate] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [socialNetworkingId, setSocialNetworkingId] = useState("");
+  // const [socialNetworkingId, setSocialNetworkingId] = useState("");
+  const [program, setprogram] = useState("");
   const [studentFees, setStudentFees] = useState("");
   const [batchId, setBatchId] = useState("");
-  const [InitaialPayment, setInitaialPayment] = useState("");
+  // const [InitaialPayment, setInitaialPayment] = useState("");
 
   const [editBatchId, setEditBatchId] = useState(null);
 
@@ -97,7 +99,7 @@ function NewBatches() {
   useEffect(() => {
     async function gettingBatches() {
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/batch/list/branch/${id}`,
           {
             headers: {
@@ -138,9 +140,10 @@ function NewBatches() {
       endingDate,
       weight,
       height,
-      socialNetworkingId,
+      // socialNetworkingId,
+      program,
       totalFees: studentFees,
-      initialPayment: InitaialPayment,
+      // initialPayment: InitaialPayment,
     };
     try {
       const response = await axios.post(
@@ -173,7 +176,7 @@ function NewBatches() {
         setEndingDate("");
         setWeight("");
         setHeight("");
-        setSocialNetworkingId("");
+        setprogram("");
         setStudentFees("");
       }
     } catch (error) {
@@ -500,16 +503,16 @@ function NewBatches() {
                 />
                 <input
                   type="text"
-                  placeholder="Social Networking ID"
-                  value={socialNetworkingId}
-                  onChange={(e) => setSocialNetworkingId(e.target.value)}
+                  placeholder="Program Name"
+                  value={program}
+                  onChange={(e) => setprogram(e.target.value)}
                 />
-                <input
+                {/* <input
                   type="text"
                   value={InitaialPayment}
                   onChange={(e) => setInitaialPayment(e.target.value)}
                   placeholder="Enter Initaial Payment"
-                />
+                /> */}
 
                 <input
                   type="text"

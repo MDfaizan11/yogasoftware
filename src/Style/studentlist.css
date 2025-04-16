@@ -360,6 +360,7 @@
   }
   .Student_button_container {
     flex-direction: column;
+    gap: 15px;
   }
 }
 

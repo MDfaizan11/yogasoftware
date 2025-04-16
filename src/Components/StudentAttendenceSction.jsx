@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../config";
 import "../Style/StudentAttendenceSction.css";
+import axiosInstance from "../utils/axiosInstance";
 
 function StudentAttendanceSection() {
   const { id } = useParams();
@@ -20,7 +21,7 @@ function StudentAttendanceSection() {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/attendance/batch/${id}/attendanceDate/${selectDate}`,
           {
             headers: {
@@ -78,7 +79,7 @@ function StudentAttendanceSection() {
       );
       console.log("Attendance submitted successfully:", response.data);
       alert("Attendance submitted successfully");
-      const refreshResponse = await axios.get(
+      const refreshResponse = await axiosInstance.get(
         `${BASE_URL}/attendance/batch/${id}/attendanceDate/${selectDate}`,
         {
           headers: {

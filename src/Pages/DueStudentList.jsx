@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../config";
 import "../Style/dueStudentList.css";
+import axiosInstance from "../utils/axiosInstance";
 
 function DueStudentList() {
   const [duePaymentStudentList, setDuePaymentStudentList] = useState([]);
@@ -10,7 +11,7 @@ function DueStudentList() {
   useEffect(() => {
     async function getDuePaymentStudentList() {
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/admin/student/overdue/fees/alert`,
           {
             headers: {

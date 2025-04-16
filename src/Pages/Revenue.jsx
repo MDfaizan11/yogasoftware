@@ -13,6 +13,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import axiosInstance from "../utils/axiosInstance";
 
 function Revenue() {
   const navigate = useNavigate();
@@ -29,12 +30,15 @@ function Revenue() {
   useEffect(() => {
     async function gettingTotalRevenue() {
       try {
-        const response = await axios.get(`${BASE_URL}/revenue/summary`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await axiosInstance.get(
+          `${BASE_URL}/revenue/summary`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         setTotalRevenue(response.data);
         setRevenueData([
@@ -53,7 +57,7 @@ function Revenue() {
   useEffect(() => {
     async function getDuePaymentStudentList() {
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/admin/student/overdue/fees/alert`,
           {
             headers: {
@@ -73,7 +77,7 @@ function Revenue() {
   useEffect(() => {
     async function getAllBranches() {
       try {
-        const response = await axios.get(`${BASE_URL}/branches/list`, {
+        const response = await axiosInstance.get(`${BASE_URL}/branches/list`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

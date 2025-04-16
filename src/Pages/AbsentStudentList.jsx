@@ -1,9 +1,9 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../config";
 import axios from "axios";
 import "../Style/absentStudentList.css";
+import axiosInstance from "../utils/axiosInstance";
 
 function AbsentStudentList() {
   const { id } = useParams();
@@ -16,7 +16,7 @@ function AbsentStudentList() {
     async function getAllAbsentStudentList() {
       try {
         setLoading(true);
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${BASE_URL}/employee/student/overdue/fee/alert/batch/${id}`,
           {
             headers: {

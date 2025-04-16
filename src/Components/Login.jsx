@@ -25,14 +25,12 @@ function Login() {
       const response = await axios.post(`${BASE_URL}/auth/login`, formData);
 
       console.log(response.data);
-      const { token, role, branchId } = response.data;
-      console.log(token);
-      console.log(role);
+      const { token, role, branchId, userId } = response.data;
 
       if (response.status === 200) {
         localStorage.setItem(
           "vijayansLogin",
-          JSON.stringify({ token, role, branchId })
+          JSON.stringify({ token, role, branchId, userId })
         );
         alert("Login successful");
         navigate("/");
