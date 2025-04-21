@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../config";
 import axiosInstance from "../utils/axiosInstance";
+import { useNavigate } from "react-router-dom";
 function EditLead() {
   const { id } = useParams();
   const token = JSON.parse(localStorage.getItem("vijayansLogin"))?.token;
-
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -63,6 +64,7 @@ function EditLead() {
       console.log(response.data);
       if (response.status === 200) {
         alert("Lead updated successfully");
+        navigate("/lead");
       }
     } catch (error) {
       console.log(error);

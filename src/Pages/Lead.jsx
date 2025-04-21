@@ -71,7 +71,7 @@ function Lead() {
         setFoundOn("");
         setStatusMode("");
         setStatus("");
-        // setShowForm(false);
+        setShowForm(false);
       }
     } catch (error) {
       console.log(error);
@@ -94,16 +94,18 @@ function Lead() {
             "Content-Type": "application/json",
           },
         });
-
         console.log(response.data);
-        setLead(response.data);
+        const leadData = Array.isArray(response.data) ? response.data : [];
+        leadData.sort((a, b) => b.id - a.id);
+
+        setLead(leadData);
       } catch (error) {
         console.log(error);
       }
     }
 
     GetallLead();
-  }, [refreshKey, selectEmploye]); // 👈 trigger again when selected employee changes
+  }, [refreshKey, selectEmploye]);
 
   function handleAddStep(id) {
     setShowStepForm(true);
@@ -132,15 +134,17 @@ function Lead() {
       setRefreshKey((prev) => prev + 1);
       if (response.status === 200) {
         alert("Log added successfully");
+        setShowStepForm(false);
       }
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(() => {
-    const searchFilter = lead.filter((item, inex) => {
-      return item.name.toLowerCase().includes(search.toLocaleLowerCase());
-    });
+    if (!Array.isArray(lead)) return;
+    const searchFilter = lead.filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    );
     setmysearch(searchFilter);
   }, [search, lead]);
 
