@@ -214,7 +214,7 @@ function StudentsList() {
           onClick={() => handleAbsentStudentList(id)}
           className="ShowAbsentStudentList"
         >
-          Student Absent More Than 3 days
+          List of students with due monthly fees.
         </button>
       </div>
 
@@ -395,7 +395,7 @@ function StudentsList() {
               )}
             </p>
             <p>
-              <strong>Social ID:</strong> {singleStudentData.socialNetworkingId}
+              <strong>Program Name :</strong> {singleStudentData.program}
             </p>
             <p>
               <strong> Next Payment Date :</strong>

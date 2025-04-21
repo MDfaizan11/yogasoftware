@@ -46,7 +46,7 @@ function AbsentStudentList() {
 
   return (
     <div className="absent-student-container">
-      <h1 className="absent_title">Absent Student List</h1>
+      <h1 className="absent_title">Due student payments List.</h1>
       {absentStudentList.length > 0 ? (
         <div className="absent_student_table_container">
           <table className="absent_student_table">
@@ -81,7 +81,7 @@ function AbsentStudentList() {
           </table>
         </div>
       ) : (
-        <div className="no-data">No Students Absent More Than 3 Days</div>
+        <div className="no-data">No due student payments.</div>
       )}
     </div>
   );

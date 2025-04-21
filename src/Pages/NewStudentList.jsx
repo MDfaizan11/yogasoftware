@@ -45,7 +45,7 @@ function NewStudentList() {
           },
         }
       );
-      console.log(response.data);
+
       setSelectedStudent(response.data);
       setIsModalOpen(true);
     } catch (error) {
@@ -164,10 +164,7 @@ function NewStudentList() {
               <p>
                 <strong>Total Fees:</strong> ₹{selectedStudent.totalFees}
               </p>
-              <p>
-                <strong>Initial Payment:</strong> ₹
-                {selectedStudent.initialPayment}
-              </p>
+
               <p>
                 <strong>Remaining Amount:</strong> ₹
                 {selectedStudent.remaingAmount}
